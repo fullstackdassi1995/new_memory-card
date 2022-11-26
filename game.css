@@ -1,5 +1,9 @@
 body{
-    background-image: url(reka.jpg);
+    background-image: url(card/reka.png);
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: 100% ;  
   }
+
+.table0{
+margin-top: 10%;
+}
