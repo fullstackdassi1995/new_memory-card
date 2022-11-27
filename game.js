@@ -13,7 +13,7 @@ const my_card = [
     {name: 'card/red3.jpg' , id : 12},
     {name: 'card/bloo1.jpg' , id : 13},
     {name: 'card/bloo2.jpg' , id : 14},
-    {name: 'card/bloo3.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 15},
 
     
     {name: 'card/yellow1.jpg' , id : 1},
@@ -30,11 +30,11 @@ const my_card = [
     {name: 'card/red3.jpg' , id : 12},
     {name: 'card/bloo1.jpg' , id : 13},
     {name: 'card/bloo2.jpg' , id : 14},
-    {name: 'card/bloo3.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 15},
     ];
 
 let tor = 0
-let tor1 = ""
+let tor_ago = ""
 
 init_game()
 
@@ -57,7 +57,7 @@ function shake(){
 }
 
 function opp(x){
-    if (x == tor1){
+    if (x == tor_ago){
         return
     }
     else{
@@ -65,20 +65,20 @@ function opp(x){
         tor++
         
         if (tor % 2 == 0){
-            if( Similar(x , tor1) == false){
+            if( Similar(x , tor_ago) == false){
                 setTimeout(
                     ()=> {
                         document.getElementById(`img${x}`).src = `card/back.png`
-                        document.getElementById(`img${tor1}`).src = `card/back.png`
-                        tor1 = ""
-                      //  end_game()
+                        document.getElementById(`img${tor_ago}`).src = `card/back.png`
+                        tor_ago = ""
+                        end_game()
                     },
                     900
                 );
             }
         } 
         else{
-            tor1 = x
+            tor_ago = x
         }
     }
 }
@@ -101,10 +101,31 @@ function Similar(x , y){
     return false
 }
 
+
 function end_game(){
-    if (5 > 0){
+    let cardsort = my_card.sort();    
+    if (cardsort[cardsort.length - 1] == undefined){
         document.getElementById('my_p').innerHTML += "TADAMMM!"
         document.getElementById(`play_again`).disabled = false;
+        my_error()
+        
     }
-
+    else {return false}
 }
+
+function my_error(){
+    try {
+        const err = new Error();
+        throw err;
+    }
+    catch (error){
+        
+        Swal.fire({
+            icon: 'error',
+            title: '<img src="winner.gif">',
+            text: `You succeeded in ${tor/2} moves! </br> Come on, play again`,
+            confirmButtonText: 'PLAY AGAIN' + init_game()
+            })
+    }
+}
+
