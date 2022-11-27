@@ -46,7 +46,7 @@ function init_game(){
     for (let i = 0 ; i <= 29 ; i++){
         document.getElementById(`img${i}`).disabled = false;
     }
-    document.getElementById(`play_again`).disabled = true;
+    //document.getElementById(`play_again`).disabled = true;
     document.getElementById('my_p').innerHTML = ""
 }
 
@@ -103,14 +103,21 @@ function Similar(x , y){
 
 
 function end_game(){
-    let cardsort = my_card.sort();    
-    if (cardsort[cardsort.length - 1] == undefined){
-        document.getElementById('my_p').innerHTML += "TADAMMM!"
-        document.getElementById(`play_again`).disabled = false;
-        my_error()
-        
+
+    for (let i = 1 ; i <= 29 ; i++){
+        my_card[i].id = undefined
     }
-    else {return false}
+
+    const cardsort = my_card.sort(function(a, b){
+        return a.id - b.id;
+    });
+
+    if (cardsort[cardsort.length - 1].id == undefined){
+        my_error()
+    }
+    else {
+        return false
+    }
 }
 
 function my_error(){
@@ -121,11 +128,13 @@ function my_error(){
     catch (error){
         
         Swal.fire({
-            icon: 'error',
-            title: '<img src="winner.gif">',
-            text: `You succeeded in ${tor/2} moves! </br> Come on, play again`,
-            confirmButtonText: 'PLAY AGAIN' + init_game()
+            title: '<img src="card/winner.gif"  style="width: 400px;">' ,
+            text: `You succeeded in ${tor/2} moves! ,` ,
+            confirmButtonText: 'PLAY AGAIN',
             })
+    }
+    finally{
+        init_game()
     }
 }
 
