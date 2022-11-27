@@ -121,7 +121,7 @@ function my_error(){
     catch (error){
         Swal.fire({
             title: '<img src="card/winner.gif"  style="width: 400px;">' ,
-            text: `You succeeded in ${tor/2} moves! ,` ,
+            text: `You succeeded with only ${(tor/2) - 30} mistakes! ,` ,
             confirmButtonText: 'PLAY AGAIN',
             })
     }
