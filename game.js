@@ -13,7 +13,7 @@ const my_card = [
     {name: 'card/red3.jpg' , id : 12},
     {name: 'card/bloo1.jpg' , id : 13},
     {name: 'card/bloo2.jpg' , id : 14},
-    {name: 'card/bloo3.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 15},
 
     
     {name: 'card/yellow1.jpg' , id : 1},
@@ -30,7 +30,7 @@ const my_card = [
     {name: 'card/red3.jpg' , id : 12},
     {name: 'card/bloo1.jpg' , id : 13},
     {name: 'card/bloo2.jpg' , id : 14},
-    {name: 'card/bloo3.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 15},
     ];
 
 let tor = 0
@@ -102,9 +102,14 @@ function Similar(x , y){
 }
 
 function end_game(){
-    if (5 > 0){
+    led cardsort = my_card
+    cardsort.sort();
+    cardsort.sort(function(a,b){return a-b;});
+    
+    if (cardsort[cardsort.length - 1] == undefined){
         document.getElementById('my_p').innerHTML += "TADAMMM!"
         document.getElementById(`play_again`).disabled = false;
+        return true
     }
-
+    else {return false}
 }
