@@ -104,10 +104,6 @@ function Similar(x , y){
 
 function end_game(){
     for (let i in my_card) {
-        my_card[i].use1 = true   
-        }
-
-    for (let i in my_card) {
         if (my_card[i].use1 == false) {
         return;                
         }  
@@ -129,8 +125,5 @@ function my_error(){
             confirmButtonText: 'PLAY AGAIN',
             })
     }
-    finally{
-         init_game()
-        }
 }
 
