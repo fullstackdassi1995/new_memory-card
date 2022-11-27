@@ -1,10 +1,36 @@
 const my_card = [
-    {name: 'aa' , id : 1},
-    {name: 'bb' , id : 2},
-    {name: 'cc' , id : 3},
-    {name: 'aa' , id : 1},
-    {name: 'bb' , id : 2},
-    {name: 'cc' , id : 3},
+    {name: 'card/yellow1.jpg' , id : 1},
+    {name: 'card/yellow2.jpg' , id : 2},
+    {name: 'card/yellow3.jpg' , id : 3},
+    {name: 'card/purpil1.jpg' , id : 4},
+    {name: 'card/purpil2.jpg' , id : 5},
+    {name: 'card/purpil3.jpg' , id : 6},
+    {name: 'card/orange1.jpg' , id : 7},
+    {name: 'card/orange2.jpg' , id : 8},
+    {name: 'card/orange3.jpg' , id : 9},
+    {name: 'card/red1.jpg' , id : 10},
+    {name: 'card/red2.jpg' , id : 11},
+    {name: 'card/red3.jpg' , id : 12},
+    {name: 'card/bloo1.jpg' , id : 13},
+    {name: 'card/bloo2.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 14},
+
+    
+    {name: 'card/yellow1.jpg' , id : 1},
+    {name: 'card/yellow2.jpg' , id : 2},
+    {name: 'card/yellow3.jpg' , id : 3},
+    {name: 'card/purpil1.jpg' , id : 4},
+    {name: 'card/purpil2.jpg' , id : 5},
+    {name: 'card/purpil3.jpg' , id : 6},
+    {name: 'card/orange1.jpg' , id : 7},
+    {name: 'card/orange2.jpg' , id : 8},
+    {name: 'card/orange3.jpg' , id : 9},
+    {name: 'card/red1.jpg' , id : 10},
+    {name: 'card/red2.jpg' , id : 11},
+    {name: 'card/red3.jpg' , id : 12},
+    {name: 'card/bloo1.jpg' , id : 13},
+    {name: 'card/bloo2.jpg' , id : 14},
+    {name: 'card/bloo3.jpg' , id : 14},
     ];
 
 let tor = 0
@@ -17,7 +43,7 @@ function init_game(){
     shake()
     shake()
 
-    for (let i = 0 ; i <= 5 ; i++){
+    for (let i = 0 ; i <= 29 ; i++){
         document.getElementById(`img${i}`).disabled = false;
     }
     document.getElementById(`play_again`).disabled = true;
@@ -35,7 +61,7 @@ function opp(x){
         return
     }
     else{
-        document.getElementById(`img${x}`).src = `card/${my_card[x].name}.jpg`
+        document.getElementById(`img${x}`).src =  my_card[x].name
         tor++
         
         if (tor % 2 == 0){
